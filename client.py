@@ -1,8 +1,9 @@
 import socket
 import threading
 
-HOST = '127.0.0.1'
-PORT = 1239
+# Google cloud ip
+HOST = '34.170.193.162'
+PORT = 3389
 
 client_socket: socket.socket
 
@@ -26,7 +27,7 @@ def receive():
             message = client_socket.recv(1024)
             print(message.decode())
         except Exception:
-            print('Holy ... just god knows what happends')
+            print('Holy ... just god knows what happens')
             client_socket.close()
             break
 

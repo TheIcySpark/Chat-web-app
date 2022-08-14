@@ -3,7 +3,7 @@ import threading
 
 
 HOST = '127.0.0.1'
-PORT = 1239
+PORT = 3389
 
 
 class ClientInfo:
@@ -26,7 +26,6 @@ def initialize_server_socket() -> socket.socket:
 def broadcast(message: str):
     global clients_list
     for client in clients_list:
-        print('try to broadcast inside for')
         client.client_socket.send(message.encode())
 
 
@@ -53,6 +52,7 @@ if __name__ == '__main__':
     server_socket = initialize_server_socket()
 
     while True:
+        print('Waiting for client to connect ...')
         client_socket, address = server_socket.accept()
 
         client_socket.send('Type you nickname: '.encode())
@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
         clients_list.append(ClientInfo(client_socket, address, nickname))
 
-        print(f"{address} connected")
+        print(f"{address} connected wit nickname: {nickname}")
 
         client_socket.send('Connected to server!'.encode())
 
