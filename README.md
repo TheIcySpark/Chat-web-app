@@ -1,2 +1,2 @@
-# Chat-web-app
-Chat web app build using django
+# Python chat
+Chat app using python
