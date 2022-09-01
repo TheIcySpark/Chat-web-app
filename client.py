@@ -1,8 +1,7 @@
 import socket
 import threading
 
-# Google cloud ip
-HOST = '34.170.193.162'
+HOST = '127.0.0.1'
 PORT = 3389
 
 client_socket: socket.socket
